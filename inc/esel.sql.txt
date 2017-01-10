@@ -1,0 +1,309 @@
+-- phpMyAdmin SQL Dump
+-- version 4.0.10.14
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:3306
+-- Generation Time: Dec 16, 2016 at 05:12 PM
+-- Server version: 5.6.34
+-- PHP Version: 5.6.20
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `larryjud_estimak`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `esell_basket`
+--
+
+CREATE TABLE IF NOT EXISTS `esell_basket` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sale_id` varchar(60) DEFAULT NULL,
+  `proddate` varchar(25) DEFAULT NULL,
+  `memid` varchar(60) DEFAULT NULL,
+  `prod` varchar(125) DEFAULT NULL,
+  `prod_ref` varchar(60) DEFAULT NULL,
+  `price` int(11) NOT NULL DEFAULT '0',
+  `prodid` int(11) NOT NULL,
+  `qnty` int(7) NOT NULL DEFAULT '0',
+  `keeps` int(3) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=34 ;
+
+--
+-- Dumping data for table `esell_basket`
+--
+
+INSERT INTO `esell_basket` (`id`, `sale_id`, `proddate`, `tmpname`, `prod`, `prod_ref`, `price`, `prodid`, `qnty`, `keeps`) VALUES
+(24, '1481746478', '12-14-2016 13:50:27', NULL, 'Lorem ipsum dolor', NULL, 60, 1, 1, 1),
+(25, '1481749071', '12-14-2016 13:57:51', NULL, 'Quis autem vel eum iur', NULL, 194, 1, 2, 1),
+(26, '1481749071', '12-14-2016 14:07:07', NULL, 'Quis autem vel eum iur', NULL, 194, 1, 2, 1),
+(27, '1', '12-14-2016 18:03:19', NULL, 'Quis Autem', NULL, 247, 1, 5, 1),
+(28, '1', '12-14-2016 20:14:57', NULL, 'Quis autem vel eum iur', NULL, 194, 1, 2, 1),
+(29, '1481854413', '12-15-2016 19:15:27', NULL, 'Quis autem vel eum iur', NULL, 194, 36, 2, 1),
+(30, '1481854413', '12-15-2016 19:26:17', NULL, 'Quis Autem', NULL, 49, 34, 1, 1),
+(31, '1', '12-15-2016 21:46:11', NULL, 'Lorem ipsum dolor', NULL, 121, 35, 2, 0),
+(32, '1', '12-16-2016 17:14:15', NULL, 'Quis Autem', 'per install', 148, 34, 3, 1),
+(33, '1', '12-16-2016 17:15:37', NULL, 'Quis Autem', 'per install', 148, 34, 3, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `esell_catalog`
+--
+
+CREATE TABLE IF NOT EXISTS `esell_catalog` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `cat` varchar(64) NOT NULL DEFAULT '',
+  `cat_path` varchar(128) NOT NULL DEFAULT '',
+  `cat_ref` varchar(128) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
+
+--
+-- Dumping data for table `esell_catalog`
+--
+
+INSERT INTO `esell_catalog` (`id`, `cat`, `cat_path`, `cat_ref`) VALUES
+(32, 'Software', '0', '0'),
+(33, 'Electronics', '0', '0'),
+(34, 'Robotics', '0', '0'),
+(35, 'Computer Hardware', '0', '0'),
+(36, 'RedHat', '1', '32'),
+(37, 'Linux Mint 17', '1', '32'),
+(38, 'Mini Drone 4GL', '1', '33'),
+(39, 'Blade Server', '1', '35'),
+(40, 'Firmware Module', '1', '34'),
+(41, 'AMD Towers', '1', '35');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `esell_fields`
+--
+CREATE TABLE IF NOT EXISTS `esell_fields` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `prod` varchar(65) NOT NULL DEFAULT '',
+  `short` varchar(128) NOT NULL DEFAULT '',
+  `details` text NOT NULL,
+  `price` varchar(12) NOT NULL DEFAULT '',
+  `prod_ref` varchar(128) NOT NULL DEFAULT '',
+  `cat` varchar(65) DEFAULT NULL,
+  `prod_link` varchar(255) DEFAULT NULL,
+  `stknumb` varchar(60) DEFAULT NULL,
+  `qnty` int(16) DEFAULT NULL,
+  `location` varchar(100) NOT NULL,
+  `feature` varchar(100) NOT NULL,
+  `datein` varchar(25) NOT NULL,
+  `prodstat` varchar(25) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+
+--
+-- Dumping data for table `esell_fields`
+--
+
+INSERT INTO `esell_fields` (`id`, `prod`, `short`, `details`, `price`, `prod_ref`, `cat`, `prod_link`, `stknumb`, `qnty`, `location`, `feature`, `datein`, `prodstat`) VALUES
+(33, 'At Vero Eos', 'At vero eos et accusamus', 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis <u>et quasi architecto beatae</u> vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. <br><br>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore <span style="color:rgb(255,0,0);"><b style="color: rgb(255, 0, 0);">magnam aliquam </b></span>quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, <span style="color:rgb(0,0,255);">vel illum qui dolorem</span> eum fugiat quo voluptas nulla pariatur?', '22.95', 'each', '35', '', '', 15, 'uploads/2521_032_12132016214648.jpg', '', '12-13-2016 21:44:48', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `esell_settings`
+--
+
+CREATE TABLE IF NOT EXISTS `esell_settings` (
+  `id` int(6) NOT NULL AUTO_INCREMENT,
+  `site_title` varchar(65) NOT NULL DEFAULT '',
+  `site_slogan` varchar(65) NOT NULL DEFAULT '',
+  `admin_email` varchar(65) NOT NULL DEFAULT '',
+  `publish` varchar(1) NOT NULL DEFAULT '',
+  `site_url` varchar(65) NOT NULL DEFAULT '',
+  `payment_url` varchar(65) DEFAULT NULL,
+  `updated` varchar(65) NOT NULL DEFAULT '',
+  `headclr` varchar(35) NOT NULL DEFAULT '',
+  `site_bkg` varchar(35) NOT NULL DEFAULT '',
+  `prodclr` varchar(35) NOT NULL DEFAULT '',
+  `textclr` varchar(35) NOT NULL DEFAULT '',
+  `img_size` varchar(35) NOT NULL DEFAULT '',
+  `tax_rate` varchar(15) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `esell_settings`
+--
+
+INSERT INTO `esell_settings` (`id`, `site_title`, `site_slogan`, `admin_email`, `publish`, `site_url`, `payment_url`, `updated`, `headclr`, `site_bkg`, `prodclr`, `textclr`, `img_size`, `tax_rate`) VALUES
+(10, 'eSell eCommerce Demo', 'Ease and Portablility', 'tradesouthwest@gmail.com', '1', 'http://larryjudd.us/stock', NULL, '12-10-2016 14:29:54', '#fafafa', 'silver', '', '', '100', '9.875'),
+(11, 'eSell eCommerce Demo', 'Ease and Portablility', 'tradesouthwest@gmail.com', '1', 'http://larryjudd.us/stock', NULL, '12-10-2016 18:23:56', '#fafafa', 'silver', '', '#434343', '100', '9.875');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `esell_sold`
+--
+
+CREATE TABLE IF NOT EXISTS `esell_sold` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `country` varchar(60) NOT NULL,
+  `first_name` varchar(60) NOT NULL,
+  `last_name` varchar(60) NOT NULL,
+  `address` varchar(60) NOT NULL,
+  `city` varchar(60) NOT NULL,
+  `state` varchar(60) NOT NULL,
+  `zip_code` varchar(20) NOT NULL,
+  `phone_number` varchar(60) NOT NULL,
+  `email_address` varchar(60) NOT NULL,
+  `countryb` varchar(60) NOT NULL,
+  `first_nameb` varchar(60) NOT NULL,
+  `last_nameb` varchar(60) NOT NULL,
+  `addressb` varchar(60) NOT NULL,
+  `cityb` varchar(60) NOT NULL,
+  `stateb` varchar(60) NOT NULL,
+  `zip_codeb` varchar(60) NOT NULL,
+  `phone_numberb` varchar(60) NOT NULL,
+  `email_addressb` varchar(60) NOT NULL,
+  `prodcode` varchar(60) NOT NULL,
+  `proddate` varchar(20) NOT NULL,
+  `paidon` varchar(20) NOT NULL,
+  `deliver` varchar(20) NOT NULL,
+  `sale_id` varchar(60) NOT NULL,
+  `mem_id` int(20) NOT NULL,
+  `persdata` varchar(60) NOT NULL,
+  `stats` int(3) NOT NULL DEFAULT '1',
+  `esellopt` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+
+
+--
+-- Dumping data for table `esell_sold`
+--
+
+INSERT INTO `esell_sold` (`id`, `country`, `first_name`, `last_name`, `address`, `city`, `state`, `zip_code`, `phone_number`, `email_address`, `countryb`, `first_nameb`, `last_nameb`, `addressb`, `cityb`, `stateb`, `zip_codeb`, `phone_numberb`, `email_addressb`, `prodcode`, `proddate`, `paidon`, `deliver`, `sale_id`, `mem_id`, `persdata`, `stats`, `esellopt`) VALUES
+(1, 'Tradesouthwest', 'Larry', 'Jones', '1234 Any St.', 'Phoenix', 'AZ', '85006', '520-555-1234', 'tradesouthwest@outlock.com', '', '', '', '', '', '', '', '', '', '34', '12-15-2016 20:55:21', '12-15-2016 20:55:21', '', '1', 1, '', 1, '33');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `est_chainq`
+--
+
+CREATE TABLE IF NOT EXISTS `est_chainq` (
+  `cqid` int(11) NOT NULL AUTO_INCREMENT,
+  `totalrun` int(11) DEFAULT NULL,
+  `actualrun` int(11) DEFAULT NULL,
+  `opt2` int(11) DEFAULT NULL,
+  `opt3` int(11) DEFAULT NULL,
+  `opt3a` varchar(60) DEFAULT NULL,
+  `opt4` int(11) DEFAULT NULL,
+  `opt5` int(11) DEFAULT NULL,
+  `toprails` int(11) DEFAULT NULL,
+  `cornerposts` int(11) DEFAULT NULL,
+  `gateposts` int(11) DEFAULT NULL,
+  `numposts` int(11) DEFAULT NULL,
+  `termcaps` int(11) DEFAULT NULL,
+  `loopcaps` int(11) DEFAULT NULL,
+  `tensionbars` int(11) DEFAULT NULL,
+  `bracebands` int(11) DEFAULT NULL,
+  `tensband` int(11) DEFAULT NULL,
+  `hogrings` int(11) DEFAULT NULL,
+  `topties` int(11) DEFAULT NULL,
+  `posthinges` int(11) DEFAULT NULL,
+  `gravlatch` int(11) DEFAULT NULL,
+  `droprods` int(11) DEFAULT NULL,
+  `postmix` int(11) DEFAULT NULL,
+  `custnm` varchar(100) DEFAULT NULL,
+  `custphn` varchar(100) DEFAULT NULL,
+  `custem` varchar(100) DEFAULT NULL,
+  `custadd` varchar(250) DEFAULT NULL,
+  `custcsz` varchar(100) DEFAULT NULL,
+  `custcom` varchar(100) DEFAULT NULL,
+  `custype` varchar(100) DEFAULT NULL,
+  `datein` varchar(25) DEFAULT NULL,
+  `statusof` varchar(25) DEFAULT NULL,
+  `custid` varchar(100) DEFAULT NULL,
+  `totalest` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`cqid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+
+--
+-- Dumping data for table `est_chainq`
+--
+
+INSERT INTO `est_chainq` (`cqid`, `totalrun`, `actualrun`, `opt2`, `opt3`, `opt3a`, `opt4`, `opt5`, `toprails`, `cornerposts`, `gateposts`, `numposts`, `termcaps`, `loopcaps`, `tensionbars`, `bracebands`, `tensband`, `hogrings`, `topties`, `posthinges`, `gravlatch`, `droprods`, `postmix`, `custnm`, `custphn`, `custem`, `custadd`, `custcsz`, `custcom`, `custype`, `datein`, `statusof`, `custid`, `totalest`) VALUES
+(8, 198, 182, 5, 9, 'slatted-green', 2, 1, 9, 8, 4, 18, 12, 18, 22, 12, 36, 1092, 107, 8, 2, 1, 14, 'Billy Bob', '555-444-1234', 'bob@email.com', '1234 Any St', 'Phoenix, AZ 85006', 'none', '1', '10-31-2016 19:41', 'estimate', 'Billy_Bob-10312016', '4500'),
+(10, 350, 324, 6, 11, '', 2, 2, 16, 8, 6, 32, 14, 32, 24, 14, 42, 1944, 190, 12, 2, 2, 17, 'John Doe', '232-333-1234', 'email@mail.com', '12234 N 12th Ave', 'Phoenix, AZ 85006', 'quote due in three days', '1', '10-31-2016 21:01', 'estimate', 'John_Doe-10312016', '3400'),
+(11, 334, 308, 5, 9, '', 2, 2, 15, 8, 6, 31, 14, 31, 24, 14, 42, 1848, 181, 12, 2, 2, 17, 'Joe Bloughe', '555 233 1233', 'ez@ez.com', '2345 n 12th st', 'phoenix az 85003', 'X', '1', '11-01-2016 06:05', 'estimate', 'Joe_Bloughe-11012016', '4800');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `est_customers`
+--
+
+CREATE TABLE IF NOT EXISTS `est_customers` (
+  `cid` int(11) NOT NULL AUTO_INCREMENT,
+  `custnm` varchar(100) NOT NULL,
+  `custphn` varchar(100) NOT NULL,
+  `custem` varchar(100) NOT NULL,
+  `custadd` varchar(250) NOT NULL,
+  `custcsz` varchar(100) NOT NULL,
+  `custid` int(11) NOT NULL,
+  `datein` varchar(25) NOT NULL,
+  PRIMARY KEY (`cid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `est_customers`
+--
+
+INSERT INTO `est_customers` (`cid`, `custnm`, `custphn`, `custem`, `custadd`, `custcsz`, `custid`, `datein`) VALUES
+(1, 'Larry Judd', '520-424-4184', 'laserbeamlarry@live.com', '2045 N 12th St', 'Phoenix AZ 85006', 77121, '10-31-2016');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tsw_members`
+--
+
+CREATE TABLE IF NOT EXISTS `tsw_members` (
+  `idm` int(11) NOT NULL AUTO_INCREMENT,
+  `phonenumber` varchar(65) DEFAULT NULL,
+  `firstname` varchar(65) NOT NULL DEFAULT '',
+  `lastname` varchar(65) NOT NULL DEFAULT '',
+  `email` varchar(250) NOT NULL,
+  `dateregistered` varchar(65) NOT NULL,
+  `level` tinyint(1) NOT NULL DEFAULT '1',
+  `prods` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `active` tinyint(1) DEFAULT '0',
+  `resetToken` varchar(255) DEFAULT NULL,
+  `resetComplete` varchar(3) DEFAULT 'No',
+  PRIMARY KEY (`idm`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `tsw_members`
+--
+
+INSERT INTO `tsw_members` (`idm`, `phonenumber`, `firstname`, `lastname`, `email`, `dateregistered`, `level`, `prods`, `username`, `password`, `active`, `resetToken`, `resetComplete`) VALUES
+(1, '520-424-4184', 'Larry', 'Judd', 'tradesouthwest@gmail.com', '12-10-2016 16:47:10', 0, '', 'tradesouthwest', 'ed010e96cb83857a1c6139ac50cf8643', 1, '', ''),
+(2, '555-520-1234', 'Larry', 'Judd', 'laserbeamlarry@live.com', '12-12-2016 20:09:20', 1, '', 'laserbeamlarry', 'ed010e96cb83857a1c6139ac50cf8643', 1, NULL, 'No');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
