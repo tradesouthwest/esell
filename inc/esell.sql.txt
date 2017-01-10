@@ -301,8 +301,7 @@ CREATE TABLE IF NOT EXISTS `tsw_members` (
 --
 
 INSERT INTO `tsw_members` (`idm`, `phonenumber`, `firstname`, `lastname`, `email`, `dateregistered`, `level`, `prods`, `username`, `password`, `active`, `resetToken`, `resetComplete`) VALUES
-(1, '520-424-4184', 'Larry', 'Judd', 'tradesouthwest@gmail.com', '12-10-2016 16:47:10', 0, '', 'tradesouthwest', 'ed010e96cb83857a1c6139ac50cf8643', 1, '', ''),
-(2, '555-520-1234', 'Larry', 'Judd', 'laserbeamlarry@live.com', '12-12-2016 20:09:20', 1, '', 'laserbeamlarry', 'ed010e96cb83857a1c6139ac50cf8643', 1, NULL, 'No');
+(1, '520-424-4184', 'Larry', 'Judd', 'myemail@gmail.com', '02-01-2017 16:47:10', 0, '', 'tradesouthwest', 'set-as-md5-password', 1, '', '');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
