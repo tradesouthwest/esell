@@ -1,7 +1,7 @@
 <?php
 // config.settings.php
 // gets site settings to send to string
-// TSW 2013
+// TSW 2017
 if( !class_exists('Database') ) {
 require 'dbh.class.php';
 }
