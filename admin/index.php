@@ -128,6 +128,7 @@ $numbsales = '';
 <li>Prod clr       <?php print($prodclr); ?></li>
 <li>Text clr       <?php print($textclr); ?></li>
 <li>Image_size     <?php print($img_size); ?></li>
+<li>Address        <?php print($warehouse); ?></li>
 </ul>
                 </div>
                 <div class="panel-footer">
