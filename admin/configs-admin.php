@@ -18,16 +18,17 @@ include 'adminnavtop.php';
         <div class="col-lg-8 col-xs-12">
 
 <?php
-/* schema= `id`, `site_title`, `site_slogan`, `admin_email`, `publish`, `site_url`, `payment_url`, `updated`, `headclr`, `site_bkg`, `prodclr`, `textclr`, `img_size`, `tax_rate` */
+/* schema= `id`, `site_title`, `site_slogan`, `admin_email`, `warehouse`, `publish`, `site_url`, `payment_url`, `updated`, `headclr`, `site_bkg`, `prodclr`, `textclr`, `img_size`, `tax_rate` */
 
 if ( isset( $_POST['submit_configs'] ))
 {
 //avoid not-nulls on first setup
-$site_title = ''; $site_slogan = ''; $admin_email = ''; $publish = ''; $site_url = ''; $payment_ur = ''; $tax_rate = ''; $updated = ''; $headclr = ''; $site_bkg = ''; $prodclr = ''; $textclr = ''; $img_size = '';
+$site_title = ''; $site_slogan = ''; $admin_email = ''; $warehouse = ''; $publish = ''; $site_url = ''; $payment_ur = ''; $tax_rate = ''; $updated = ''; $headclr = ''; $site_bkg = ''; $prodclr = ''; $textclr = ''; $img_size = '';
 //grab fields
 if( !empty( $_POST['site_title'] ))  $site_title        = $_POST['site_title'];
-if( !empty( $_POST['site_slogan'] )) $site_slogan      = $_POST['site_slogan'];
-if( !empty( $_POST['admin_email'] )) $admin_email     = $_POST['admin_email'];
+if( !empty( $_POST['site_slogan'] )) $site_slogan       = $_POST['site_slogan'];
+if( !empty( $_POST['admin_email'] )) $admin_email      = $_POST['admin_email'];
+if( !empty( $POST['warehouse'] ))    $warehouse       = $data['warehouse'];
 if( !empty( $_POST['publish'] ))     $publish        = $_POST['publish'];
 if( !empty( $_POST['site_url'] ))    $siteurl       = $_POST['site_url'];
 if( !empty( $_POST['payment_url'] )) $payment_url  = $_POST['payment_url'];
@@ -43,8 +44,8 @@ if( !empty( $_POST['img_size'] )) $img_size = $_POST['img_size'];
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 $query = "INSERT INTO esell_settings
-(site_title, site_slogan, admin_email, publish, site_url, payment_url, tax_rate, updated, headclr, site_bkg, prodclr, textclr, img_size )
-VALUES (:site_title, :site_slogan, :admin_email, :publish, :siteurl, :payment_url, :tax_rate, :updated, :headclr,
+(site_title, site_slogan, admin_email, warehouse, publish, site_url, payment_url, tax_rate, updated, headclr, site_bkg, prodclr, textclr, img_size )
+VALUES (:site_title, :site_slogan, :admin_email, :warehouse, :publish, :siteurl, :payment_url, :tax_rate, :updated, :headclr,
 :site_bkg, :prodclr, :textclr, :img_size )";
 $stmt = $pdo->prepare($query);
 
@@ -52,6 +53,7 @@ $params = array(
     "site_title"  => $site_title,
     "site_slogan" => $site_slogan,
     "admin_email" => $admin_email,
+    "warehouse"   => $warehouse,
     "publish"     => $publish,
     "siteurl"     => $siteurl,
     "payment_url" => $payment_url,
@@ -86,6 +88,7 @@ $inserted = $stmt->execute($params);
 if( !empty( $data['site_title'] )) $site_title   = $data['site_title'];
 if( !empty( $data['site_slogan'] )) $site_slogan = $data['site_slogan'];
 if( !empty( $data['admin_email'] )) $admin_email = $data['admin_email'];
+if( !empty( $data['warehouse'] ))   $warehouse   = $data['warehouse'];
 if( !empty( $data['publish'] ))     $publish     = $data['publish'];
 if( !empty( $data['site_url'] ))    $siteurl     = $data['site_url'];
 if( !empty( $data['payment_url'] )) $payment_url = $data['payment_url'];
@@ -103,6 +106,7 @@ if( !empty( $data['img_size'] ))    $img_size    = $data['img_size'];
 <form id="do_admin" name="do_admin" method="post" action="">
 <fieldset><legend>These are your last inputted values. Over-write to update</legend>
 <table><tbody>
+	
 <tr><td>site_title</td>
 <td><input name="site_title" id="site_title" type="text" value="<?php esc( $site_title ); ?>"/></td></tr>
 
@@ -111,6 +115,9 @@ if( !empty( $data['img_size'] ))    $img_size    = $data['img_size'];
 
 <tr><td>admin_email</td>
 <td><input name="admin_email" id="admin_email" type="email" value="<?php esc( $admin_email  ); ?>" /></td></tr>
+	
+<tr><td>warehouse (address &lt;br> ok)</td>
+<td><input name="warehouse" id="warehouse" type="email" value="<?php esc( $warehouse  ); ?>" /></td></tr>
 
 <tr><td>publish (1 for yes, 0 for no)</td>
 <td><input name="publish" id="publish" type="text" value="<?php esc( $publish  ); ?>" /></td></tr>
