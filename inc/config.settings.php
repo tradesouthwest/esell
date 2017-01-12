@@ -14,6 +14,7 @@ require 'dbh.class.php';
 if( !empty( $data['site_title'] ))  $site_title  = $data['site_title'];
 if( !empty( $data['site_slogan'] )) $site_slogan = $data['site_slogan'];
 if( !empty( $data['admin_email'] )) $admin_email = $data['admin_email'];
+if( !empty( $data['warehouse'] ))   $warehouse   = $data['warehouse'];
 if( !empty( $data['publish'] ))     $publish     = $data['publish'];
 if( !empty( $data['site_url'] ))    $site_url     = $data['site_url'];
 if( !empty( $data['payment_url'] )) $payment_url = $data['payment_url'];
@@ -25,7 +26,6 @@ if( !empty( $data['prodclr'] ))     $prodclr     = $data['prodclr'];
 if( !empty( $data['textclr'] ))     $textclr     = $data['textclr'];
 if( !empty( $data['img_size'] ))    $img_size    = $data['img_size'];
 }
-$warehouse = "1234 Any Street,<br> North Town, AL";
 
     //pull category name, @uses `esell_catalog` col=@id
     function catName($catid)
