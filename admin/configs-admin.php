@@ -117,7 +117,7 @@ if( !empty( $data['img_size'] ))    $img_size    = $data['img_size'];
 <td><input name="admin_email" id="admin_email" type="email" value="<?php esc( $admin_email  ); ?>" /></td></tr>
 	
 <tr><td>warehouse (address &lt;br> ok)</td>
-<td><input name="warehouse" id="warehouse" type="email" value="<?php esc( $warehouse  ); ?>" /></td></tr>
+<td><input name="warehouse" id="warehouse" type="text" value="<?php esc( $warehouse  ); ?>" /></td></tr>
 
 <tr><td>publish (1 for yes, 0 for no)</td>
 <td><input name="publish" id="publish" type="text" value="<?php esc( $publish  ); ?>" /></td></tr>
