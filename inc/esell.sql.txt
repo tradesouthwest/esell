@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `esell_settings` (
   `site_title` varchar(65) NOT NULL DEFAULT '',
   `site_slogan` varchar(65) NOT NULL DEFAULT '',
   `admin_email` varchar(65) NOT NULL DEFAULT '',
-  `warehouse` varchar(250) NOT NULL,
+  `warehouse` varchar(250) NOT NULL DEFAULT '',
   `publish` varchar(1) NOT NULL DEFAULT '',
   `site_url` varchar(65) NOT NULL DEFAULT '',
   `payment_url` varchar(65) DEFAULT NULL,
