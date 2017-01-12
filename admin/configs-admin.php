@@ -28,7 +28,7 @@ $site_title = ''; $site_slogan = ''; $admin_email = ''; $warehouse = ''; $publis
 if( !empty( $_POST['site_title'] ))  $site_title        = $_POST['site_title'];
 if( !empty( $_POST['site_slogan'] )) $site_slogan       = $_POST['site_slogan'];
 if( !empty( $_POST['admin_email'] )) $admin_email      = $_POST['admin_email'];
-if( !empty( $POST['warehouse'] ))    $warehouse       = $data['warehouse'];
+if( !empty( $POST['warehouse'] ))    $warehouse       = $POST['warehouse'];
 if( !empty( $_POST['publish'] ))     $publish        = $_POST['publish'];
 if( !empty( $_POST['site_url'] ))    $siteurl       = $_POST['site_url'];
 if( !empty( $_POST['payment_url'] )) $payment_url  = $_POST['payment_url'];
