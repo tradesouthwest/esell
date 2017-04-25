@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `esell_basket` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `sale_id` varchar(60) DEFAULT NULL,
   `proddate` varchar(25) DEFAULT NULL,
-  `memid` varchar(60) DEFAULT NULL,
+  `tmpname` varchar(60) DEFAULT NULL,
   `prod` varchar(125) DEFAULT NULL,
   `prod_ref` varchar(60) DEFAULT NULL,
   `price` int(11) NOT NULL DEFAULT '0',
