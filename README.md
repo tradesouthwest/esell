@@ -22,6 +22,7 @@ Must be installed on a server with PHP 5.2 or greater.
 - Navigate to PHPMyAdmin to set table tsw-members to user level of 0 to make yourself the admin 
 
 That's it. Enjoy. Put a link back to me for Tradesouthwest.com
+Demo at: http://tradesouthwest.com/bin/esell/
 
 ## Contributors
 
